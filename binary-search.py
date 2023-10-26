@@ -4,15 +4,16 @@ from bisect import bisect_left
 
 def BinarySearch(a, x):
 	i = bisect_left(a, x)
-	if i != len(a) and a[i] == x:
-		return i
+	if i:
+		return (i-1)
 	else:
 		return -1
 
+# Driver code
 a = [1, 2, 4, 4, 8]
-x = int(4)
+x = int(7)
 res = BinarySearch(a, x)
 if res == -1:
-	print(x, "is absent")
+	print("No value smaller than ", x)
 else:
-	print("First occurrence of", x, "is present at", res)
+	print("Largest value smaller than ", x, " is at index ", res)
